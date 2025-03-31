@@ -1,0 +1,3 @@
+/home/breno/dev/minecraft/build/CMakeFiles/minecraft.dir
+/home/breno/dev/minecraft/build/CMakeFiles/edit_cache.dir
+/home/breno/dev/minecraft/build/CMakeFiles/rebuild_cache.dir
