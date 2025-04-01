@@ -9,10 +9,10 @@ void Renderer::init()
 {
     gladLoadGL();
 
-    _shader = new Shader("/home/breno/dev/minecraft/assets/shaders/shader.vert", "/home/breno/dev/minecraft/assets/shaders/shader.frag");
+    _shader = new Shader("./assets/shaders/shader.vert", "./assets/shaders/shader.frag");
 
     _texture = new Texture;
-    _texture->load_image("/home/breno/dev/minecraft/assets/textures/barrel_side.png");
+    _texture->load_image("./assets/textures/barrel_side.png");
 
     glEnable(GL_DEPTH_TEST);
 }

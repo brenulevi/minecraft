@@ -9,9 +9,9 @@
 #include "chunk.h"
 #include "mesh.h"
 
-int main()
+int main(int argc, char** argv)
 {
-    std::cout << "Hello World\n";
+    std::cout << "Hello World\n" << argv[0] << std::endl;
 
     glfwInit();
 
