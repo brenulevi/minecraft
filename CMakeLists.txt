@@ -6,25 +6,26 @@ add_definitions(-DGLFW_INCLUDE_NONE)
 
 add_executable(
     minecraft
-    src/main.cpp
-    src/window.cpp
-    src/renderer.cpp
-    src/input.cpp
-    src/shader.cpp
-    src/mesh.cpp
-    src/vertex_layout.cpp
-    src/texture.cpp
-    src/player.cpp
-    src/chunk.cpp
     
-    src/glad.c
-    src/stb_image.cpp
+    Source/Main.cpp
+    Source/Game.cpp
+    Source/Window.cpp
+    
+    Source/Rendering/Renderer.cpp
+    Source/Rendering/Shader.cpp
+    Source/Rendering/VertexBuffer.cpp
+    Source/Rendering/VertexLayout.cpp
+    Source/Rendering/VertexArray.cpp
+    
+    Source/glad.c
+    Source/stb_image.cpp
 )
 
 target_link_libraries(minecraft PUBLIC glfw)
 
 target_include_directories(minecraft PUBLIC
-    ${CMAKE_SOURCE_DIR}/dependencies/glad/include
-    ${CMAKE_SOURCE_DIR}/dependencies/stb_image/include
-    ${CMAKE_SOURCE_DIR}/dependencies/glm/include
+    ${CMAKE_SOURCE_DIR}/Source/
+    ${CMAKE_SOURCE_DIR}/Dependencies/glad/include
+    ${CMAKE_SOURCE_DIR}/Dependencies/stb_image/include
+    ${CMAKE_SOURCE_DIR}/Dependencies/glm/include
 )
