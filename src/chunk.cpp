@@ -1,19 +1,7 @@
 #include "chunk.h"
 
-Chunk::Chunk(const glm::vec3 position)
+Chunk::Chunk(const glm::ivec2 position)
     : _position(position)
-{
-    VertexLayout layout = get_layout();
-    _mesh = new Mesh(layout);
-}
-
-Chunk::~Chunk()
-{
-    if (_mesh)
-        delete _mesh;
-}
-
-void Chunk::generate_blocks()
 {
     for (int x = 0; x < CHUNK_SIZE_X; x++)
     {
@@ -25,6 +13,15 @@ void Chunk::generate_blocks()
             }
         }
     }
+
+    VertexLayout layout = get_layout();
+    _mesh = new Mesh(layout);
+}
+
+Chunk::~Chunk()
+{
+    if (_mesh)
+        delete _mesh;
 }
 
 void Chunk::generate_mesh()
@@ -62,7 +59,7 @@ void Chunk::generate_mesh()
     _mesh->add_indices(_indices.data(), _indices.size() * sizeof(unsigned int));
 }
 
-glm::vec3 &Chunk::get_position()
+glm::ivec2 &Chunk::get_position()
 {
     return _position;
 }

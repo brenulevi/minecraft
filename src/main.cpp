@@ -39,9 +39,16 @@ int main(int argc, char** argv)
     mesh->add_vertices(vertices, sizeof(vertices));
     mesh->add_indices(indices, sizeof(indices));
 
-    Chunk* chunk = new Chunk({0.0f, 0.0f, -CHUNK_SIZE_Z});
-    chunk->generate_blocks();
-    chunk->generate_mesh();
+    std::vector<Chunk*> chunks;
+    for(int x = -2; x <= 2; x++)
+    {
+        for(int z = -2; z <= 2; z++)
+        {
+            Chunk* chunk = new Chunk(glm::ivec2(x, z));
+            chunks.push_back(chunk);
+            chunk->generate_mesh();
+        }
+    }
     
     float total_time = 0.0f;
     while(Window::is_open())
@@ -66,15 +73,21 @@ int main(int argc, char** argv)
             Renderer::draw(model, *mesh);
         }
 
+        for(auto chunk : chunks)
         {
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), chunk->get_position());
+            auto& chunk_pos = chunk->get_position();
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(chunk_pos.x * CHUNK_SIZE_X, 0.0f, chunk_pos.y * CHUNK_SIZE_Z));
             Renderer::draw(model, chunk->get_mesh());
         }
 
         Window::update();
     }
 
-    delete chunk;
+    for(auto chunk : chunks)
+    {
+        delete chunk;
+    }
+
     delete mesh;
 
     Renderer::shutdown();

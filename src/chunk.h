@@ -23,13 +23,12 @@ struct ChunkVertex
 class Chunk
 {
 public:
-    Chunk(const glm::vec3 position);
+    Chunk(const glm::ivec2 position);
     ~Chunk();
 
-    void generate_blocks();
     void generate_mesh();
 
-    glm::vec3& get_position();
+    glm::ivec2& get_position();
     BlockType& get_block_at(int x, int y, int z);
     Mesh& get_mesh();
 
@@ -40,7 +39,7 @@ private:
     static VertexLayout get_layout();
 
 private:
-    glm::vec3 _position;
+    glm::ivec2 _position;
     
     BlockType _blocks[CHUNK_SIZE_X * CHUNK_SIZE_Y * CHUNK_SIZE_Z];
     
