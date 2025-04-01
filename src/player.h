@@ -25,4 +25,9 @@ public:
     float far_plane;
 
     float move_speed;
+    float view_speed;
+
+private:
+    float _last_mouse_x;
+    float _last_mouse_y;
 };

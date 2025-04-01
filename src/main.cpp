@@ -51,6 +51,9 @@ int main()
 
         Input::update();
 
+        if(Input::get_key_down(GLFW_KEY_ESCAPE))
+            Window::close();
+
         player.update(delta_time);
         
         Renderer::clear();

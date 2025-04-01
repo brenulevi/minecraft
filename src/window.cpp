@@ -30,9 +30,19 @@ void Window::update()
     glfwPollEvents();
 }
 
+void Window::close()
+{
+    glfwSetWindowShouldClose(_ptr, true);
+}
+
 bool Window::is_open()
 {
     return !glfwWindowShouldClose(_ptr);
+}
+
+GLFWwindow *Window::get_native()
+{
+    return _ptr;
 }
 
 float Window::get_aspect_ratio()

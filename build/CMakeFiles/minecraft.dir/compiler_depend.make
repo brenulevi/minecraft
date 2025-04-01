@@ -363,6 +363,7 @@ CMakeFiles/minecraft.dir/src/glad.c.o: /home/breno/dev/minecraft/src/glad.c \
 
 CMakeFiles/minecraft.dir/src/input.cpp.o: /home/breno/dev/minecraft/src/input.cpp \
   /home/breno/dev/minecraft/src/input.h \
+  /home/breno/dev/minecraft/src/window.h \
   /usr/include/GLFW/glfw3.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \

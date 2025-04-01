@@ -12,9 +12,11 @@ public:
     static void destroy();
 
     static void update();
+    static void close();
 
     static bool is_open();
 
+    static GLFWwindow* get_native();
     static float get_aspect_ratio();
 
 private:
